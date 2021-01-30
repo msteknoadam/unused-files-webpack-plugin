@@ -81,7 +81,7 @@ See https://www.npmjs.com/package/glob-all#notes
   }
 
   apply(compiler) {
-    compiler.hooks.done.tap("UnusedFilesWebpackPlugin", (compilation, done) => {
+    compiler.hooks.afterEmit.tap("UnusedFilesWebpackPlugin", (compilation, done) => {
       applyAfterEmit(compiler, compilation, this).then(done, done)
     });
   }
